@@ -9,5 +9,6 @@ ENV CHOKIDAR_USEPOLLING true
 COPY package.json /usr/src/app/package.json
 RUN npm install --silent
 RUN npm install react-scripts -g --silent
+RUN yarn install
 
 CMD ["npm", "start"]
