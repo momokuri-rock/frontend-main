@@ -11,7 +11,6 @@ import Contact from './components/Contact.js';
 
 
 //import s from './App.css';
-
 class App extends Component {
   render(){
     return(
