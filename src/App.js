@@ -68,7 +68,7 @@ const IssuesData = [
   }
 ];
 
-const issueByName = name => IssuesData.find( issue => issue.name === name );
+const issueByName = id => IssuesData.find( issue => issue.id === id );
 
 const Home = () => (
   <div>
@@ -82,6 +82,40 @@ const About = () => (
     <p>Momokuri-Rock Presents are</p>
   </div>
 );
+
+
+class Issues extends Component {
+  constructor() {
+    super();
+    this.state = {}
+    this.handleVote = this.handleVote.bind(this);
+  }
+  componentWillMount() {
+    IssuesData.forEach(issue => {
+      this.setState({
+        ...this.state,
+        [issue.id]: 0
+      });
+    });
+  }
+  handleVote(id) {
+    this.setState({
+      [id]: this.state[id] + 1
+    })
+  }
+
+  render(){
+    return(
+      <div>
+        <h2>Issues</h2>
+        <Route exact path='/issues' render={props => <IssueList handleVote={this.handleVote} /> }/>
+        <Route path='/issues/:id' render={props => <Issue match={props.match} votes={this.state}/> }/>
+      </div>
+    );
+  }
+}
+
+/*
 const Issues = () => (
   <div>
     <h2>Issues</h2>
@@ -89,39 +123,40 @@ const Issues = () => (
     <Route path='/issues/:name' component={Issue} />
   </div>
 );
+*/
 
-const IssueList = () => (
+const IssueList = props => (
   <div>
     {IssuesData.map(issue =>(
-      <li key={issue.name}>
-        <Link to={`/issues/${issue.name}`}>{issue.name}</Link>
+      <li key={issue.id}>
+        <Link to={`/issues/${issue.id}`}>{issue.nameAAA}</Link>
+        <button onClick={() => props.handleVote(issue.id)}>+</button>
       </li>
     ))}
   </div>
 );
 
 const Issue = props => {
-  const { name } = props.match.params;
-  const issue = issueByName(name);
-
+  const { id } = props.match.params;
+  const issue = issueByName(id);
+  const vote = props.votes[id];
   if( typeof issue === 'undefined' ){
     return (
       <div>
-        <p>Issues with name '{name}' is noe exist.</p>
+        <p>Issues with name '{id}' is noe exist.</p>
       </div>
     );
   }
-
   const containStyle = { 'border':'1px gray solid', 'padding':'10px' }
-
   return (
     <div>
       <div style={containStyle}>
-        <p>{issue.name}</p>
+        <p>{issue.nameAAA}</p>
         <p>{issue.event}</p>
         <p>{issue.specSize} / {issue.specPage}</p>
         <p>{issue.theme}</p>
       </div>
+      <h1>Vote: {vote}</h1>
     </div>
   );
 }
