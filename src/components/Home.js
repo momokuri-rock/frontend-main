@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import s from './Home.scss';
-console.log(s)
 
 class Home extends Component {
   render(){
