@@ -16,7 +16,7 @@ class App extends Component {
   render(){
     return(
       <BrowserRouter>
-        <div className={'main'} >
+        <div>
           <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/about'>About</Link></li>
