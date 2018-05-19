@@ -207,7 +207,7 @@ module.exports = {
                 loader: require.resolve('sass-loader'),
                 options: {
                   data: "@import 'global-imports.scss';",
-                  includePaths: [path.resolve(__dirname, 'src/styles/config/')]
+                  includePaths: [path.resolve(__dirname, '../src/styles/config/')]
                 }
               }
             ],
