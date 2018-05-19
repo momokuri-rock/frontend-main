@@ -205,13 +205,13 @@ module.exports = {
               },
               {
                 loader: require.resolve('sass-loader'),
-                //options: {
-                //  data: "@import 'global-imports.scss';",
-                //  includePaths: [path.resolve(__dirname, '../src/styles/config/')]
-                //}
+                options: {
+                  data: "@import 'global-imports.scss';",
+                  includePaths: [path.resolve(__dirname, 'src/styles/config/')]
+                }
               }
             ],
-            //exclude: /node_modules/
+            exclude: /node_modules/,
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
