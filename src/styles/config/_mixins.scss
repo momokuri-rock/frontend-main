@@ -1,0 +1,6 @@
+// media query
+@mixin mq( $breakpoint: md, $range: max ){
+  @media (#{$range}-width:#{map-get($breakpoints, $breakpoint)}){
+    @content;
+  }
+}

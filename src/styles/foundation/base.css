@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,400");
+html, body {
+  height: auto;
+  width: 100%;
+  font-size: 14px;
+  line-height: 200%;
+  font-family: 'Raleway', '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+  font-weight: 500;
+  font-feature-settings: "palt";
+  word-wrap: break-word; }
+  @media all and (-ms-high-contrast: none) {
+    html, body {
+      font-family: 'メイリオ', 'Meiryo', sans-serif; } }

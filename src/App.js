@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+//import Helmet from "react-helmet";
+//import {Helmet} from "react-helmet";
 
 //import ApiRequester from './utility/ApiRequester.js';
 import Home  from './components/Home.js';
@@ -9,9 +11,7 @@ import Blog  from './components/Blog.js';
 import Bonus from './components/Bonus.js';
 import Contact from './components/Contact.js';
 
-
 //import s from './App.css';
-
 class App extends Component {
   render(){
     return(
